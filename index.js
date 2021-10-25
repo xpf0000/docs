@@ -84,4 +84,6 @@ argv.splice(1)
  * @name vue app
  * @desc run vue app with vite
  */
+console.log('src: ', src)
+console.log('argv: ', argv)
 require('vite/dist/node/cli.js')
