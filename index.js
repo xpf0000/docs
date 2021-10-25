@@ -20,7 +20,7 @@ if (!argv[2] || argv[2].trim() === '--build') {
 }
 
 const src = argv[2]
-process.env.VITE_DOC_SRC = src
+process.env.DOC_SRC = src
 
 const isBuild = argv[3] && argv[3].trim() === '--build'
 

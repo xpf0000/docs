@@ -29,7 +29,7 @@ class Router {
         break
       case 'docs.json':
         this.res.setHeader('Content-Type', 'application/json;charset=UTF-8')
-        const doc = new Docs(this.params.src).getDoc()
+        const doc = new Docs(process.env.DOC_SRC).getDoc()
         this.end(JSON.stringify(doc))
         return
       default:

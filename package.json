@@ -1,6 +1,6 @@
 {
   "name": "@xpf0000/docs",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "dev": "node ./index.js",
     "pre-build": "node ./pre-build.js",

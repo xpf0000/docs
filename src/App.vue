@@ -36,16 +36,10 @@
   const endDoc = ref({})
   request({
     url: 'docs.json',
-    method: 'post',
-    data: {
-      src: import.meta.env.VITE_DOC_SRC
-    }
+    method: 'get'
   }).then((res) => {
-    console.log('res: ', res)
     Object.assign(docs, res.data.docs)
     Object.assign(references, res.data.references)
-    console.log('docs: ', docs)
-    console.log('references: ', references)
     for (let type in docs) {
       if (docs[type].length > 0) {
         leftChoose(docs[type][0])
@@ -171,7 +165,6 @@
    */
   const endParams = computed(() => {
     const param = endDoc.value.param || []
-    console.log('param: ', param)
     const arr = []
     for (let p of param) {
       const parr = p.split(' ')
@@ -182,12 +175,10 @@
         desc: value
       })
     }
-    console.log('endParams: ', endParams)
     return arr
   })
 
   const findLeft = (data) => {
-    console.log('findLeft: ', data)
     for (let type in docs) {
       for (let doc of docs[type]) {
         if (doc.file === data.label) {
