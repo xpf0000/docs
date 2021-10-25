@@ -281,6 +281,10 @@
     </el-col>
     <el-col v-if="endDoc.id" :xs="24" :sm="9" :md="10" :lg="10" :xl="10">
       <el-descriptions class="margin-top" :title="endDoc.name" :column="1" size="medium" border>
+        <el-descriptions-item v-if="endDoc.author">
+          <template #label> author </template>
+          <pre>{{ endDoc.author }}</pre>
+        </el-descriptions-item>
         <el-descriptions-item>
           <template #label> desc </template>
           <pre>{{ endDoc.desc }}</pre>
