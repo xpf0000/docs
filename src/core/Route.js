@@ -1,5 +1,6 @@
 const Docs = require('./Docs.js')
-
+const handler = require('serve-handler')
+const path = require('path')
 /**
  * @doc true
  * @fileDoc true
@@ -34,7 +35,9 @@ class Router {
       default:
         break
     }
-    this.end('Not Found', '404')
+    handler(this.req, this.res, {
+      public: path.join(path.dirname(path.dirname(__dirname)), 'dist')
+    })
   }
 
   end(info, code = 200) {

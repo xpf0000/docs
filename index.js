@@ -73,17 +73,7 @@ const server = http.createServer(async (req, res) => {
 })
 server.on('listening', () => {
   const port = server.address().port
-  console.log('port: ', port, `http://localhost:${port}/`)
+  console.log('Doc Serve: ', `http://localhost:${port}/`)
   base = `http://localhost:${port}/`
-  process.env.VITE_API_BASEURL = `http://localhost:${port}/`
 })
 server.listen(0)
-argv.splice(1)
-/**
- * @doc true
- * @name vue app
- * @desc run vue app with vite
- */
-console.log('src: ', src)
-console.log('argv: ', argv)
-require('vite/dist/node/cli.js')
