@@ -35,7 +35,7 @@
   const centerDoc = ref({})
   const endDoc = ref({})
   request({
-    url: 'docs',
+    url: 'docs.json',
     method: 'post',
     data: {
       src: import.meta.env.VITE_DOC_SRC

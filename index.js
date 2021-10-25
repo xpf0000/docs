@@ -6,11 +6,37 @@
  * @type main
  * @desc project main file, create api server and run vue app with vite
  */
+const fs = require('fs')
+const path = require('path')
 const http = require('http')
-const Router = require('./core/Route.js')
+const Router = require('./src/core/Route.js')
+const Docs = require('./src/core/Docs.js')
+const compressing = require('compressing')
 
-const src = process.argv[2] || __dirname
+const argv = process.argv
+if (!argv[2] || argv[2].trim() === '--build') {
+  argv.splice(2, 0, path.join(__dirname, 'src'))
+}
+
+const src = argv[2]
 process.env.VITE_DOC_SRC = src
+
+const isBuild = argv[3] && argv[3].trim() === '--build'
+
+if (isBuild) {
+  const outDir = argv[4] ? argv[4] : path.join(__dirname, 'release')
+  const zipfile = path.join(__dirname, 'pre-build.zip')
+  compressing.zip
+    .uncompress(zipfile, outDir)
+    .then(() => {
+      const doc = new Docs(src).getDoc()
+      fs.writeFileSync(path.join(outDir, 'docs.json'), JSON.stringify(doc))
+      console.log('Build Success: ', outDir)
+    })
+    .catch()
+  return
+}
+
 let base = ''
 /**
  * @doc true
@@ -51,7 +77,7 @@ server.on('listening', () => {
   process.env.VITE_API_BASEURL = `http://localhost:${port}/`
 })
 server.listen(0)
-process.argv.splice(1)
+argv.splice(1)
 /**
  * @doc true
  * @name vue app

@@ -26,7 +26,7 @@ class Router {
       case undefined:
       case '':
         break
-      case 'docs':
+      case 'docs.json':
         this.res.setHeader('Content-Type', 'application/json;charset=UTF-8')
         const doc = new Docs(this.params.src).getDoc()
         this.end(JSON.stringify(doc))

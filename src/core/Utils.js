@@ -16,8 +16,14 @@ const path = require('path')
  * @param base location dir path
  * @returns [] all file in location dir path
  */
-const findFile = (base) => {
+const findFile = (base, exclude = []) => {
   const files = []
+  const inExclude = exclude.some((e) => {
+    return base.indexOf(e) >= 0
+  })
+  if (inExclude) {
+    return files
+  }
   fs.readdirSync(base).forEach((file) => {
     const curPath = path.join(base, file)
     if (fs.existsSync(curPath)) {

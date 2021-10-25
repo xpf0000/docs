@@ -1,0 +1,1 @@
+import{H as t,x as o,y as r,j as a}from"./@vue.01ea2b94.js";var e=t({name:"CaretRight"});const s={xmlns:"http://www.w3.org/2000/svg",viewBox:"0 0 1024 1024"},n=a("path",{fill:"currentColor",d:"M384 192v640l384-320.064z"},null,-1);function c(i,p,l,d,h,v){return o(),r("svg",s,[n])}e.render=c;e.__file="packages/components/CaretRight.vue";var g=e;export{g as C};
