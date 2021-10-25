@@ -4,6 +4,19 @@ Generate documents from standard comments, Not limited to specific files, specif
 
 group by user custom, show file's dependencies chain that used by import and require
 
+![screen.png](./screen.png)
+
+https://xpf0000.github.io/docs.github.io/
+
+# Install
+
+```js
+npm install @xpf0000/docs
+docs
+docs src
+docs src --build outSrc
+```
+
 # How it works
 
 Traverse all files in the directory, find all standard comments like /* */
