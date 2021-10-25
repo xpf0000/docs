@@ -9,6 +9,8 @@ node_modules
 .eslintignore
 package-lock.json
 prettier.config.js
+public
+release
 
 # local env files
 .env.local

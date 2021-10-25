@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * @doc true
  * @fileDoc true
